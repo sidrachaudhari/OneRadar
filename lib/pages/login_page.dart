@@ -95,7 +95,6 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(
                   labelText: 'Email',
                   isDense: true,
-                  enabled: false,
                   hintText: 'you@example.com',
                   prefixIcon: const Icon(Icons.email_outlined),
                   errorText: _emailError,
