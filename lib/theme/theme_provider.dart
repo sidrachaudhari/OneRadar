@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  Color _seedColor = const Color(0xFF6750A4);
+  Color _seedColor = const Color.fromARGB(255, 0, 255, 251);
   ThemeMode _themeMode = ThemeMode.system;
 
   Color get seedColor => _seedColor;
@@ -21,16 +21,10 @@ class ThemeProvider extends ChangeNotifier {
     (color: Color(0xFFAB4600), name: 'Amber'),
     (color: Color(0xFF00629A), name: 'Cyan'),
     (color: Color(0xFF6B2D6B), name: 'Plum'),
+
   ];
 
-  ThemeData get lightTheme => ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: _seedColor,
-          brightness: Brightness.light,
-        ),
-        fontFamily: "Absans",
-      );
+
 
   ThemeData get darkTheme => ThemeData(
         useMaterial3: true,
@@ -38,6 +32,7 @@ class ThemeProvider extends ChangeNotifier {
           seedColor: _seedColor,
           brightness: Brightness.dark,
         ),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 0, 14, 14),
         fontFamily: "Absans",
       );
 

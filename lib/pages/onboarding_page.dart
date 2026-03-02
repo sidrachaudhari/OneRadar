@@ -41,8 +41,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
     }
   }
 
-  void _goLogin() => Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => const LoginPage()));
+  void _goLogin() => Navigator.of(context)
+      .pushReplacement(MaterialPageRoute(builder: (_) => const LoginPage()));
 
   @override
   void dispose() {
@@ -56,7 +56,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     final isLast = _page == _slides.length - 1;
 
     return Scaffold(
-      backgroundColor: cs.surface,
+      // backgroundColor: cs.surface,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -65,8 +65,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
               alignment: Alignment.topRight,
               child: Padding(
                 padding: const EdgeInsets.all(16),
-                child: TextButton(
-                    onPressed: _goLogin, child: const Text('Skip')),
+                child:
+                    TextButton(onPressed: _goLogin, child: const Text('Skip')),
               ),
             ),
             Expanded(
@@ -100,7 +100,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 onPressed: _next,
                 style: FilledButton.styleFrom(
                   elevation: 5,
-                  
                 ),
                 child: Text(
                   isLast ? 'Get Started' : 'Next',
@@ -129,16 +128,32 @@ class _Slide extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+                color: cs.primary,
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(color: cs.primary.withOpacity(0.5), blurRadius: 30)
+                ]),
+            child: Icon(data.icon, size: 55, color: cs.onPrimary),
+          ),
           const SizedBox(height: 48),
-          Text(data.title,
-              style: tt.headlineMedium?.copyWith(fontWeight: FontWeight.bold),),
+          Text(
+            data.title,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 28, fontFamily: 'Outfit'),
+          ),
           const SizedBox(height: 16),
-          Text(data.body,
-              style: tt.bodyLarge
-                  ?.copyWith(color: cs.onSurfaceVariant, height: 1.5),),
+          Text(
+            data.body,
+            textAlign: TextAlign.center,
+            style:
+                tt.bodyLarge?.copyWith(color: cs.onSurfaceVariant, height: 1.5),
+          ),
         ],
       ),
     );

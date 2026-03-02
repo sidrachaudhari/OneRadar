@@ -21,12 +21,11 @@ class MyApp extends StatelessWidget {
     final tp = context.watch<ThemeProvider>();
     return MaterialApp(
       title: 'My App',
+
       debugShowCheckedModeBanner: false,
-      theme: tp.lightTheme,
-      darkTheme: tp.darkTheme,
-      themeMode: tp.themeMode,
+      theme: tp.darkTheme,
       home: const Wrapper(),
-      
+
     );
   }
 }
