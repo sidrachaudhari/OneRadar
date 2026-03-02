@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'landing_page.dart';
-import 'home_page.dart';
+import 'package:oneradar/pages/home_page.dart';
+import 'package:oneradar/pages/onboarding_page.dart';
+
 
 class Wrapper extends StatelessWidget {
   const Wrapper({super.key});
@@ -13,7 +14,7 @@ class Wrapper extends StatelessWidget {
     if (isLoggedIn) {
       return const HomePage();
     } else {
-      return const LandingPage();
+      return const OnboardingPage();
     }
   }
 }

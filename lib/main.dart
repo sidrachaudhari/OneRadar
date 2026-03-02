@@ -1,8 +1,16 @@
-import 'package:flutter/cupertino.dart';
-import 'wrapper.dart';
+import 'package:flutter/material.dart';
+import 'package:oneradar/wrapper.dart';
+import 'package:provider/provider.dart';
+import 'theme/theme_provider.dart';
+import 'pages/onboarding_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,9 +18,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
+    final tp = context.watch<ThemeProvider>();
+    return MaterialApp(
+      title: 'My App',
       debugShowCheckedModeBanner: false,
-      home: Wrapper(),
+      theme: tp.lightTheme,
+      darkTheme: tp.darkTheme,
+      themeMode: tp.themeMode,
+      home: const Wrapper(),
+      
     );
   }
 }
