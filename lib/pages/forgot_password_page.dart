@@ -34,6 +34,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     final cs = Theme.of(context).colorScheme;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: cs.surface,
       appBar: AppBar(
           backgroundColor: Colors.transparent,

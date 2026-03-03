@@ -57,6 +57,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
     return Scaffold(
       // backgroundColor: cs.surface,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,

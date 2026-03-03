@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
     final tp = context.watch<ThemeProvider>();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(_navItems[_idx].label,
             style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -61,8 +62,8 @@ class _HomePageState extends State<HomePage> {
       ),
       body: IndexedStack(
         index: _idx,
-        children: [
-          const _HomeTab(),
+        children: const [
+          _HomeTab(),
           _Placeholder(Icons.explore_rounded, 'Explore',
               'Discover courses, subjects, and study materials'),
           _Placeholder(Icons.assignment_rounded, 'Mock Tests',
