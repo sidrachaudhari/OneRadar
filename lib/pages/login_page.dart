@@ -69,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       backgroundColor: cs.surface,
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24),
@@ -147,9 +148,10 @@ class _LoginPageState extends State<LoginPage> {
               FilledButton(
                 onPressed: _loading ? null : _submit,
                 style: FilledButton.styleFrom(
+                  elevation: 8, // Adds the shadow
+                  shadowColor: cs.primary.withOpacity(0.5), // Colors the shadow
                   minimumSize: const Size.fromHeight(50),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
                 ),
                 child: _loading
                     ? const SizedBox(
